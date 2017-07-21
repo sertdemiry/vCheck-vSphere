@@ -54,6 +54,8 @@ $Credfile = $ScriptPath + "\Windowscreds.xml"
 if (!(get-module -name VMware.VimAutomation.Core -erroraction silentlycontinue)) {
 	if (!(get-pssnapin -name VMware.VimAutomation.Core -erroraction silentlycontinue)) {
 		add-pssnapin VMware.VimAutomation.Core -erroraction silentlycontinue
+		#For PowerCLI 6.5 version snapins are changed with modules
+		Get-Module –ListAvailable VM* | Import-Module
 	}
 }
 
